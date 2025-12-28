@@ -1,25 +1,29 @@
-<script src="
-https://cdn.jsdelivr.net/npm/fs-js@1.0.6/index.min.js
-">const fs = require("fs");
-  function loaddata() {
-  var messages = fs.readFile("messages.ms")
-  document.getElementById("messagebox").innerHTML = messages
-};
-  function sendmessage() {};
-  function authorise() {
-    var authvault = fs.readFile("vault.keys")
-    var accesscode = document.getElementById("accesscode").value
-    if(accesscode == 
-  };
-</script>
-<body id="messanger" style="display:none" onload="loaddata()">
-  <button onclick="loaddata()">Force Refresh</button><br>
-  <textbox id="messagebox"></textbox>
-  <br><input id="newmessage"><button onclick="sendmessage()">Send</button>
-</body>
-<body id="startup">
+<script src="/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+<div id="messanger" style="display:none" class="messanger">
+    <title>Private Messanger</title>
+  <p id="usernamebox"></p>
+  <widgetbot
+    server="1399936713987457086"
+    channel="1413557024779796602"
+    width="100%"
+    height="100%"
+></widgetbot><br>
+</div>
+<style>
+body {text-align: center;color:white;font-family: Arial, Helvetica, sans-serif;background-color: rgb(33, 33, 33);}
+div {margin:100px;padding:10px;background-color: purple;border-radius: 40px;padding-top: 60px;padding-bottom: 60px;}
+input {border:none;border-radius: 6px;}
+button {border:none;border-radius: 6px;}
+#messanger body {text-align: center;color:white;font-family: Arial, Helvetica, sans-serif;background-image: url("./backround.png");}
+.messanger {margin:0px;padding:0px;background-color: none;border-radius: 0px;}
+#messanger input {border:none;border-radius: 6px;}
+#messanger button {border:none;border-radius: 6px;}
+</style>
+<div id="startup">
+    <title>Support Panel</title>
   <p>Enter Your Personal Access Code</p>
   <br>
-  <input id="accesscode"><button onclick="authorise()">Sumbit</button>
-  <p id="accesserror"></p>
-</body>
+  <input id="accesscode" placeholder="Enter Access Code Here..."> <button onclick="authorise()">Submit</button>
+  <p id="accesserror" style="color:red;"></p><br>
+</div>
