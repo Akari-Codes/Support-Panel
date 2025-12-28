@@ -1,3 +1,25 @@
-<div id="input_container"><p>Pick a Number Between 1 and <font id="lnum"></font></p><input id="lover_input" placeholder="Enter Chosen Number"></input> <button onclick="start_pickup()">Set</button></div>
-<div id="outout_container" style="display:none"><p id="pickup_line"></p></div>
-<script src="index.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/fs-js@1.0.6/index.min.js
+">const fs = require("fs");
+  function loaddata() {
+  var messages = fs.readFile("messages.ms")
+  document.getElementById("messagebox").innerHTML = messages
+};
+  function sendmessage() {};
+  function authorise() {
+    var authvault = fs.readFile("vault.keys")
+    var accesscode = document.getElementById("accesscode").value
+    if(accesscode == 
+  };
+</script>
+<body id="messanger" style="display:none" onload="loaddata()">
+  <button onclick="loaddata()">Force Refresh</button><br>
+  <textbox id="messagebox"></textbox>
+  <br><input id="newmessage"><button onclick="sendmessage()">Send</button>
+</body>
+<body id="startup">
+  <p>Enter Your Personal Access Code</p>
+  <br>
+  <input id="accesscode"><button onclick="authorise()">Sumbit</button>
+  <p id="accesserror"></p>
+</body>
